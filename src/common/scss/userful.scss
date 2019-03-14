@@ -1,0 +1,25 @@
+//一像素边框的mixin
+@mixin border-1px($color){
+    position: relative;
+    &:after{
+        content:'';
+        display: block;
+        bottom:0;
+        left:0;
+        width:100%;
+        position: absolute;
+        border-top:1px solid $color;
+    }
+}
+//小图标的2x和3x问题的mixin
+@mixin bg-image($url){
+    background-image: url($url+'@2x.png');
+    @media (-webkit-min-device-pixel-ratio:3),(min-device-pixel-ratio:3){
+    background-image: url($url+'@3x.png');
+    }
+}
+.hai{
+    width:100px;
+    height:100px;
+    background: red;
+}
