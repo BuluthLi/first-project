@@ -4,7 +4,7 @@
       <div
         class="decrease icon-remove_circle_outline icon"
         v-show="food.count"
-        @click="decrease"
+        @click.stop.prevent="decrease"
         :key="1"
       ></div>
     </transition>
@@ -22,7 +22,15 @@ export default {
       show: true
     };
   },
-  props: ["food"],
+  // 字符串写法
+  // props: ["food"],
+  // 对象写法
+  props:{
+    food:{
+      type:Object,
+      default:{}
+    }
+  },
   computed: {
     count: function() {}
   },
