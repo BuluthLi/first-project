@@ -14,9 +14,9 @@
         <span class="count">{{dislike.length}}</span>
       </div>
     </div>
-    <div class="onlytext">
+    <div class="onlytext"  @click="onChangeOnlyText">
       <span class="icon-check_circle normal" :class="{'gouxuan':onlyText}"></span>
-      <span style="margin-left:4px;" @click="onChangeOnlyText">只看有内容的评价</span>
+      <span style="margin-left:4px;">只看有内容的评价</span>
     </div>
   </div>
 </template>

@@ -387,7 +387,7 @@ export default {
       }
     }
     .detail-close {
-      margin: 32px auto;
+      margin: 0 auto;
       width: 32px;
       height: 32px;
       line-height: 32px;
