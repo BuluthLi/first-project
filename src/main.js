@@ -5,7 +5,7 @@ import App from './App'
 import router from './router'
 import axios from 'axios'
 import store from './store/index'
-//这么引入mixin好像不行,其他不受影响
+//这么引入mixin好像不行,但是其他样式可以（其他不受影响）
 import './common/scss/index.scss'
 Vue.prototype.$http = axios
 

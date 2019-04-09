@@ -37,7 +37,7 @@ export default {
       for (let i = 0; i < off; i++) {
         results.push(OFF);
       }
-      console.log(results);
+      // console.log(results);
       return results;
     }
   }
