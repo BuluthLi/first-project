@@ -8,7 +8,10 @@
     </div>
     <!-- 可以传数据，但不好 -->
     <!-- <router-view class="router-view" :goods="goods"></router-view> -->
-    <router-view class="router-view" :seller="seller"></router-view>
+    <!-- keep-alive将当前组件状态保存到内存中 -->
+    <keep-alive>
+      <router-view class="router-view" :seller="seller"></router-view>
+    </keep-alive>
     <a href="http://www.baidu.com"></a>
     <!-- <div class="content">i am content</div> -->
     <!-- 最好大小写区分，行业规范，敏不敏感暂且不论 -->

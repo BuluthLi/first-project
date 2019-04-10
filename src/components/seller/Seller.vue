@@ -53,9 +53,11 @@
       </div>
       <Split></Split>
       <div class="seller-img-title">商家实景</div>
-      <div class="seller-img-wrapper" ref="imgscroll">
-        <div class="seller-img-box">
-          <img class="img-item" v-for="(item,index) in seller.pics" :key="index" :src="item">
+      <div class="pic-wrapper">
+        <div class="seller-img-wrapper" ref="imgscroll">
+          <div class="seller-img-box">
+            <img class="img-item" v-for="(item,index) in seller.pics" :key="index" :src="item">
+          </div>
         </div>
       </div>
       <Split></Split>
@@ -284,21 +286,26 @@ export default {
       color: rgb(7, 17, 27);
       line-height: 14px;
     }
-    .seller-img-wrapper {
-      width: 100%;
+    .pic-wrapper {
       margin: 12px 0 18px 0;
-      height: 90px;
-      overflow: hidden;
-      .seller-img-box {
-        width: 534px;
+      padding: 0 15px;
+      box-sizing: border-box;
+      .seller-img-wrapper {
+        width: 100%;
+
         height: 90px;
-        white-space: nowrap;
-        padding: 0 15px;
-        box-sizing: border-box;
-        .img-item {
-          width: 120px;
+        overflow: hidden;
+        .seller-img-box {
+          width: 504px;
           height: 90px;
-          margin: 0 3px;
+          white-space: nowrap;
+          // padding: 0 15px;
+          box-sizing: border-box;
+          .img-item {
+            width: 120px;
+            height: 90px;
+            margin: 0 3px;
+          }
         }
       }
     }
@@ -312,8 +319,8 @@ export default {
         color: rgb(7, 17, 27);
         line-height: 16px;
         font-weight: 200;
-        &:last-child{
-          border-bottom:none;
+        &:last-child {
+          border-bottom: none;
         }
       }
       .title {
