@@ -11,9 +11,9 @@
               <span class="sell-count">月售{{seller.sellCount}}单</span>
             </div>
           </div>
-          <div class="coll">
-            <div class="icon icon-favorite"></div>
-            <div class="coll-text">{{coll[0]}}</div>
+          <div class="coll" @click="toggle">
+            <div class="icon icon-favorite" :class="{'favorite-active':favoriteFlag}"></div>
+            <div class="coll-text">{{coll[favoriteFlag]}}</div>
           </div>
         </div>
         <div class="header-desc">
@@ -80,7 +80,8 @@ export default {
       sellerScroll: null,
       imgScroll: null,
       currentPageIndex: 0,
-      timer: null
+      timer: null,
+      favoriteFlag: 0
     };
   },
   props: {
@@ -128,6 +129,9 @@ export default {
       this.timer = setTimeout(() => {
         this.imgScroll.goToPage(playPage, 0, 400);
       }, 400);
+    },
+    toggle() {
+      this.favoriteFlag = this.favoriteFlag ? 0 : 1;
     }
   },
   components: {
@@ -180,10 +184,15 @@ export default {
           }
         }
         .coll {
+          width: 50px;
+          text-align: center;
           .icon {
             font-size: 24px;
             line-height: 24px;
-            color: rgba(240, 20, 20, 1);
+            color: rgba(7, 17, 27, 0.1);
+          }
+          .favorite-active {
+            color: red;
           }
           .coll-text {
             margin-top: 4px;
