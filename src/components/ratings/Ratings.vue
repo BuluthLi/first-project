@@ -93,15 +93,14 @@ export default {
       .post("/api/ratings", {})
       .then(res => {
         this.ratings = res.data;
-        this.$nextTick(() => {
-          this.ratingsScroll = new BScroll(this.$refs.ratingsscroll, {
-            click: true
-          });
-        });
       })
       .catch(err => {
         console.log(err);
       });
+  },
+  mounted() {
+    console.log("mounted");
+    this.initScroll();
   },
   methods: {
     onChangeSelectedType(value) {
@@ -121,6 +120,17 @@ export default {
       } else {
         return type === this.selectedType;
       }
+    },
+    initScroll() {
+      this.$nextTick(() => {
+        if (!this.ratingsScroll) {
+          this.ratingsScroll = new BScroll(this.$refs.ratingsscroll, {
+            click: true
+          });
+        } else {
+          this.ratingsScroll.refresh();
+        }
+      });
     }
   },
   components: {
