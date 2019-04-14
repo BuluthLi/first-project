@@ -72,6 +72,7 @@
 import BScroll from "better-scroll";
 import Star from "../star/Star";
 import Split from "../split/Split";
+import * as browserStore from "../../common/js/browserStore";
 export default {
   data() {
     return {
@@ -81,7 +82,9 @@ export default {
       imgScroll: null,
       currentPageIndex: 0,
       timer: null,
-      favoriteFlag: 0
+      favoriteFlag: (() => {
+        return browserStore.loadFromSession(this.seller.id, "favoriteFlag", 1);
+      })()
     };
   },
   props: {
@@ -131,7 +134,19 @@ export default {
       }, 400);
     },
     toggle() {
+      console.log(this.favoriteFlag);
       this.favoriteFlag = this.favoriteFlag ? 0 : 1;
+      console.log(this.favoriteFlag);
+      browserStore.saveToSession(
+        this.seller.id,
+        "favoriteFlag",
+        this.favoriteFlag
+      );
+    }
+  },
+  watch: {
+    seller(newValue, oldValue) {
+      // console.log(newValue, oldValue);
     }
   },
   components: {

@@ -20,11 +20,18 @@
 </template>
 <script>
 import Header from "./components/header/Header.vue";
+import { urlParse } from "./common/js/urlParse";
+
 export default {
   data() {
     return {
       msg: "牛皮",
-      seller: {},
+      seller: {
+        id: (() => {
+          let queryParam = urlParse();
+          return queryParam.id;
+        })()
+      },
       goods: []
     };
   },
@@ -34,7 +41,9 @@ export default {
       .post("/api/data", {})
       .then(res => {
         console.log(res);
-        this.seller = res.data.seller;
+        // 对象属性扩展
+        this.seller = Object.assign({}, this.seller, res.data.seller);
+        // console.log(this.seller);
         this.goods = res.data.goods;
         // this.hai(this.seller);
       })
