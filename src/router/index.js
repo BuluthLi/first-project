@@ -8,20 +8,20 @@ import Seller from '@/components/seller/Seller'
 Vue.use(Router)
 
 export default new Router({
-  mode:'history',
+  mode: 'history',
   routes: [
-    {
-      path: '/',
-      name: 'allToGoods',
-      redirect: '/ratings',
-      component: Ratings
-    },
     // {
     //   path: '*',
-    //   name: 'all-goods',
+    //   name: 'all-error',
     //   redirect: '/goods',
     //   component: Goods
     // },
+    {
+      path: '/',
+      name: 'allToGoods',
+      redirect: '/goods',
+      component: Goods
+    },
     {
       path: '/goods',
       name: 'goods',
