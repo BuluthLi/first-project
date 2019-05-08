@@ -85,7 +85,9 @@ export default {
   created: function() {
     console.log(this.seller);
   },
-  mounted: function() {},
+  mounted: function() {
+    console.log('头部加载');
+  },
   methods: {
     click: function(value) {
       alert(value + this.msg);
